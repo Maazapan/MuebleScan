@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mueblescan/screens/login_page.dart';
+import 'package:mueblescan/screens/search_worker_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'MuebleScan',
-      home: LoginPage(),
+      home: const LoginPage(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/search_worker': (context) => const SearchWorkerPage(),
+      },
     );
   }
 }

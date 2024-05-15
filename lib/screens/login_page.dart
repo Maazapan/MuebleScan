@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:mueblescan/screens/qrview_page.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:mueblescan/widgets/wave_clipper.dart';
-import 'package:wave/config.dart';
-import 'package:wave/wave.dart';
+import 'package:mueblescan/screens/search_worker_page.dart';
+import 'package:mueblescan/widgets/slide_animation.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,18 +15,24 @@ class _LoginPageState extends State<LoginPage> {
   bool _userSave = false;
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFf8f8f8),
       appBar: AppBar(
         backgroundColor: const Color(0xFFf8f8f8),
+        toolbarHeight: 0,
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
-              padding: EdgeInsets.only(top: 10, left: 25),
+              padding: EdgeInsets.only(top: 110, left: 25),
               child: Text(
                 'Inciar Sesion',
                 style: TextStyle(
@@ -78,9 +80,11 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 5),
+                  padding: const EdgeInsets.only(left: 2),
                   child: TextField(
                     controller: _controller,
+                    autofocus: false,
+                    readOnly: true,
                     cursorColor: Colors.black45,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
@@ -89,15 +93,17 @@ class _LoginPageState extends State<LoginPage> {
                         fontSize: 18,
                         fontFamily: "rounds-regular",
                       ),
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.only(left: 5),
-                        child: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                        ),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.black,
                       ),
                     ),
-                    onTap: () => {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        SlideAnimation(page: const SearchWorkerPage())
+                            .getRoute(),
+                      );
+                    },
                   ),
                 ),
               ),
@@ -135,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: 80,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Colors.black38,
+                        color: Colors.black54,
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
                           BoxShadow(
@@ -147,8 +153,8 @@ class _LoginPageState extends State<LoginPage> {
                         ],
                       ),
                       child: const Icon(
-                        Icons.qr_code,
-                        size: 30,
+                        Icons.qr_code_scanner,
+                        size: 32,
                         color: Colors.white,
                       ),
                     ),
@@ -157,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(top: 40),
+              padding: EdgeInsets.only(top: 70),
               child: Divider(
                 color: Colors.black26,
                 height: 1,
