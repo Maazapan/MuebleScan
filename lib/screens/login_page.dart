@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             const Padding(
               padding: EdgeInsets.only(top: 110, left: 25),
               child: Text(
-                'Inciar Sesion',
+                'Bienvenido de vuelta',
                 style: TextStyle(
                   fontSize: 24,
                   fontFamily: "rounds-bold",
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                 width: 300,
                 height: 60,
                 child: Text(
-                  'Utiliza un QR o selecciona un trabajador para continuar,',
+                  'Para iniciar sesion escanea un QR o selecciona un trabajador para continuar.',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black45,
@@ -56,6 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
             const Center(
               child: Image(
                 image: AssetImage('assets/escaneo.png'),
