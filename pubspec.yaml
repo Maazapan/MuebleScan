@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/escaneo.png
     - assets/shape1.png
+    - assets/modo-retrato.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -77,6 +78,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+    - family: inter-semibold
+      fonts:
+        - asset: fonts/inter-semibold.ttf
+    - family: inter-regular
+      fonts:
+        - asset: fonts/inter-regular.ttf
     - family: rounds-regular
       fonts:
         - asset: fonts/rounds-regular.ttf

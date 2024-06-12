@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mueblescan/screens/login_page.dart';
-import 'package:mueblescan/screens/qrview_page.dart';
+import 'package:mueblescan/screens/login/login_page.dart';
+import 'package:mueblescan/screens/login/login_qr_page.dart';
 import 'package:mueblescan/screens/search_worker/search_worker_page.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       home: LoginPage(),
       debugShowCheckedModeBanner: false,
       routes: {
-        '/search_worker': (context) => const SearchWorkerPage(),
+        '/search_worker': (context) => const LoginQRPage(),
       },
     );
   }
